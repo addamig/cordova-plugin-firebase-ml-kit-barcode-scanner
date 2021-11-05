@@ -197,7 +197,12 @@ public class CameraSource2 {
   public void release() {
     synchronized (_CameraLock) {
       stop();
-      _FrameProcessor.release();
+      
+     try {
+        _FrameProcessor.release();
+      } catch (Exception e) {
+
+      }
 
       if (_ScanningProcessor != null) {
         _ScanningProcessor.Stop();
